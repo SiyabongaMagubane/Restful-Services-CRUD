@@ -2,10 +2,10 @@
 Projects implements JAX-RS library to create a Restful service which offers 
 
 
-Service Errors:
+Service Errors: These describes service errors based on input field validation completed by web service.
 
-Internal Server Error
+1) Internal Server Error
 -> Generic Input validation errors 
-Missing Input Error
+2) Missing Input Error
 -> Missing Required input field errors
 
