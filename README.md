@@ -1,6 +1,7 @@
 # Restful-Services-CRUD
-Projects implements JAX-RS library to create a Restful service which offers 
+Projects implements JAX-RS library to create a Restful service which offers CRUD services on mysql database
 
+Screenshot output of user creation is saved in output directory.
 
 Service Errors: These describes service errors based on input field validation completed by web service.
 
