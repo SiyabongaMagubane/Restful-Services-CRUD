@@ -9,4 +9,8 @@ Service Errors: These describes service errors based on input field validation c
 -> Generic Input validation errors 
 2) Missing Input Error
 -> Missing Required input field errors
+3) No Record found
+->Record does not exist in database
+4) Record Already exists
+-> Record already exists in database
 
