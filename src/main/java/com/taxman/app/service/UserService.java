@@ -12,4 +12,6 @@ import com.taxman.app.shared.dto.UserDTO;
 public interface UserService {
 	public UserDTO createUser(UserDTO user);
 
+	public UserDTO getUser(String id);
+
 }

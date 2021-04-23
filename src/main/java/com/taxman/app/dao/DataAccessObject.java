@@ -14,4 +14,5 @@ public interface DataAccessObject {
 	public UserDTO getUserNameByUsername(String username);
 	public void closeConnection();
 	public UserDTO saveUser(UserDTO user);
+	public UserDTO getUser(String id);
 }

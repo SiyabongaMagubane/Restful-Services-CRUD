@@ -18,8 +18,10 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.BeanUtils;
 
 import com.taxman.app.dao.DataAccessObject;
+
 import com.taxman.app.io.entity.*;
 import com.taxman.app.shared.dto.UserDTO;
+
 import com.taxman.app.utils.HibernateUtils;
 
 
@@ -94,5 +96,31 @@ public class DataAccessObjectImpl implements DataAccessObject {
 		// TODO Auto-generated method stub
 		return userDto;
 	}
+
+	@Override
+	public UserDTO getUser(String id) {
+CriteriaBuilder cb = session.getCriteriaBuilder();
+		
+		//Criteria against persistent class
+		CriteriaQuery<UserEntity> criteria = cb.createQuery(UserEntity.class);
+		
+		
+		//Query roots 
+		Root<UserEntity> profileRoot = criteria.from(UserEntity.class);
+		criteria.select(profileRoot);
+		criteria.where(cb.equal(profileRoot.get("userid"), id));
+		
+		
+		//Fetch singe result
+		
+		UserDTO userDto = null;
+		UserEntity resultUser = session.createQuery(criteria).getSingleResult();
+		userDto = new UserDTO();
+		BeanUtils.copyProperties(resultUser, userDto);	
+		
+		return userDto;
+	}
+
+
 
 }

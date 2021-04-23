@@ -92,6 +92,25 @@ public class UserServiceImpl implements UserService{
 		
 		
 	}
+
+	@Override
+	public UserDTO getUser(String id) {
+			UserDTO userDto = null;
+			try {
+				this.database.openConnection();
+				userDto = this.getUser(id);
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+				throw new NoRecordFoundException(ErrorMessages.NO_RECORD_FOUND.getErrorMessage());
+				
+			}finally {
+				this.database.closeConnection();
+				
+			}
+			return userDto;
+		}
+	
 	
 
 }

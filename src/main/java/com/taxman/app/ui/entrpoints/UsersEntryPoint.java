@@ -14,8 +14,10 @@ import com.taxman.app.ui.model.response.CreateUserResponseModel;
 //import org.eclipse.persistence.oxm.MediaType;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -48,6 +50,23 @@ public class UsersEntryPoint {
 		BeanUtils.copyProperties(createdUserProfile, objectReturned);
 		
 		return objectReturned;
+	}
+	
+	@GET
+	@Path("/{id}")
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	public CreateUserResponseModel getUser(@PathParam("id") String id) {
+		
+CreateUserResponseModel objectReturned = new CreateUserResponseModel();
+		
+		//query user
+		UserService userService = new UserServiceImpl();
+		UserDTO receivedUserProfile = userService.getUser(id);
+		//Prepare response
+		BeanUtils.copyProperties(receivedUserProfile, objectReturned);
+		
+		return objectReturned;
+		
 	}
 	
 }

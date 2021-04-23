@@ -16,6 +16,7 @@ public class CreateUserResponseModel {
 	private String email;
 	private String username;
 	private String href;
+	private String userID;
 	/**
 	 * @return the firstname
 	 */
@@ -75,5 +76,11 @@ public class CreateUserResponseModel {
 	 */
 	public void setHref(String href) {
 		this.href = href;
+	}
+	public String getUserID() {
+		return userID;
+	}
+	public void setUserID(String userID) {
+		this.userID = userID;
 	}
 }
